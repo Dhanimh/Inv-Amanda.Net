@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Jika file yang diminta tidak ada dan direktori tidak ada
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    
+    # Dan jika file .php nya ada
+    RewriteCond %{REQUEST_FILENAME}\.php -f
+    
+    # Rewrite dengan menambahkan .php
+    RewriteRule ^(.*)$ $1.php [L]
+</IfModule>
