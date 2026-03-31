@@ -76,7 +76,7 @@ INSERT INTO `log_aktivitas` (`id`, `id_user`, `aktivitas`, `keterangan`, `create
 (3, 1, 'Menambah user baru', 'Username: agungp, Role: teknisi', '2026-03-19 13:55:53'),
 (4, 1, 'Logout dari sistem', NULL, '2026-03-19 13:55:53'),
 (11, 1, 'Login ke sistem', NULL, '2026-03-19 13:55:53'),
-(12, 1, 'Logout dari sistem', NULL, '2025-10-13 04:10:46'),
+(12, 1, 'Logout dari sistem', NULL, '2026-03-19 13:55:53'),
 (13, 1, 'Login ke sistem', NULL, '2025-10-13 04:11:59'),
 (14, 1, 'Login ke sistem', NULL, '2025-10-13 04:19:42'),
 (15, 1, 'Login ke sistem', NULL, '2025-10-13 04:32:19'),
