@@ -35,7 +35,7 @@
                         </div>
                     </div>
 
-                    <!-- Middle Section: Search -->
+                    
                     <div class="hidden lg:flex max-w-md w-full ml-8 mr-auto">
                     <form action="<?= BASE_URL ?>/public/transaksi/riwayat" method="GET" class="relative w-full">
                         <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -46,7 +46,7 @@
                 </div> <!-- Close Search -->
                 </div> <!-- Close Left Section -->
 
-                <!-- Right Section -->
+                
                 <div class="flex items-center gap-4 md:gap-6">
                     <div class="hidden lg:flex items-center gap-3 px-4 py-1.5 bg-slate-50 border border-slate-200 rounded-xl">
                         <div class="w-7 h-7 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">

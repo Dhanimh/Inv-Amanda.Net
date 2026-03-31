@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Waktu pembuatan: 18 Okt 2025 pada 19.14
--- Versi server: 10.4.25-MariaDB
--- Versi PHP: 7.4.30
+-- Host: localhost:3306
+-- Generation Time: Mar 31, 2026 at 08:09 AM
+-- Server version: 8.0.30
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,63 +24,58 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `barang`
+-- Table structure for table `barang`
 --
 
 CREATE TABLE `barang` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `kode_barang` varchar(50) NOT NULL,
   `nama_barang` varchar(100) NOT NULL,
   `kategori` varchar(50) DEFAULT NULL,
   `merk` varchar(50) DEFAULT NULL,
   `satuan` varchar(20) DEFAULT NULL,
-  `stok` int(11) DEFAULT 0,
+  `stok` int DEFAULT '0',
   `harga` decimal(15,2) DEFAULT NULL,
-  `deskripsi` text DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `deskripsi` text,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data untuk tabel `barang`
+-- Dumping data for table `barang`
 --
 
 INSERT INTO `barang` (`id`, `kode_barang`, `nama_barang`, `kategori`, `merk`, `satuan`, `stok`, `harga`, `deskripsi`, `created_at`) VALUES
-(1, 'BRG001', 'Router WiFi AC1200', 'Router', 'TP-Link', 'Unit', 14, '350000.00', '', '2025-10-12 13:55:53'),
-(2, 'BRG002', 'Access Point Indoor', 'Access Point', 'Ubiquiti', 'Unit', 20, '450000.00', NULL, '2025-10-12 13:55:53'),
-(3, 'BRG003', 'Kabel UTP Cat6', 'Kabel', 'AMP', 'Meter', 400, '5000.00', NULL, '2025-10-12 13:55:53'),
-(4, 'BRG004', 'Switch 8 Port Gigabit', 'Switch', 'Cisco', 'Unit', 11, '750000.00', NULL, '2025-10-12 13:55:53'),
-(5, 'BRG005', 'ONT HG8145V5', 'ONT', 'Huawei', 'Unit', 30, '250000.00', '', '2025-10-12 13:55:53');
+(1, 'BRG001', 'Router Wifi', 'Router', 'TP-Link', 'Unit', 99, '0.00', '', '2026-02-19 13:55:53'),
+(2, 'BRG002', 'Access Point Indoor', 'Access Point', 'Ubiquiti', 'Unit', 100, '0.00', '', '2026-03-19 13:55:53'),
+(3, 'BRG003', 'Kabel UTP Cat6', 'Kabel', 'AMP', 'Roll', 5, '0.00', '', '2026-03-19 13:55:53'),
+(4, 'BRG004', 'Switch 8 Port Gigabit', 'Switch', 'Huawei', 'Unit', 8, '0.00', '', '2026-03-19 13:55:53'),
+(5, 'BRG005', 'ONT', 'ONT', 'ZTE', 'Unit', 400, '0.00', '', '2026-03-19 13:55:53'),
+(6, 'BRG006', 'Kabel FO', 'Kabel', 'Falcom', 'Box', 100, '0.00', '', '2026-03-29 17:17:34');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `log_aktivitas`
+-- Table structure for table `log_aktivitas`
 --
 
 CREATE TABLE `log_aktivitas` (
-  `id` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL,
+  `id` int NOT NULL,
+  `id_user` int NOT NULL,
   `aktivitas` varchar(255) NOT NULL,
-  `keterangan` text DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `keterangan` text,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data untuk tabel `log_aktivitas`
+-- Dumping data for table `log_aktivitas`
 --
 
 INSERT INTO `log_aktivitas` (`id`, `id_user`, `aktivitas`, `keterangan`, `created_at`) VALUES
-(1, 1, 'Login ke sistem', NULL, '2025-10-13 03:30:34'),
-(2, 1, 'Menambah barang keluar', 'Kode: TRX-K-202510130001, Barang: Router WiFi AC1200, Teknisi: Budi Santoso, Jumlah: 2', '2025-10-13 03:38:39'),
-(3, 1, 'Menambah user baru', 'Username: agungp, Role: teknisi', '2025-10-13 03:40:07'),
-(4, 1, 'Logout dari sistem', NULL, '2025-10-13 03:40:29'),
-(5, 2, 'Login ke sistem', NULL, '2025-10-13 03:40:52'),
-(6, 2, 'Menambah barang masuk', 'Kode: TRX-M-202510130001, Barang: Switch 8 Port Gigabit, Jumlah: 1', '2025-10-13 03:47:44'),
-(7, 2, 'Logout dari sistem', NULL, '2025-10-13 03:52:06'),
-(8, 2, 'Login ke sistem', NULL, '2025-10-13 03:57:57'),
-(9, 2, 'Mengubah data teknisi', 'Teknisi: Andi Pratama', '2025-10-13 04:02:09'),
-(10, 2, 'Logout dari sistem', NULL, '2025-10-13 04:03:50'),
-(11, 1, 'Login ke sistem', NULL, '2025-10-13 04:05:20'),
+(1, 1, 'Login ke sistem', NULL, '2026-03-19 13:55:53'),
+(2, 1, 'Menambah barang keluar', 'Kode: TRX-K-202510130001, Barang: Router WiFi AC1200, Teknisi: Budi Santoso, Jumlah: 2', '2026-03-19 13:55:53'),
+(3, 1, 'Menambah user baru', 'Username: agungp, Role: teknisi', '2026-03-19 13:55:53'),
+(4, 1, 'Logout dari sistem', NULL, '2026-03-19 13:55:53'),
+(11, 1, 'Login ke sistem', NULL, '2026-03-19 13:55:53'),
 (12, 1, 'Logout dari sistem', NULL, '2025-10-13 04:10:46'),
 (13, 1, 'Login ke sistem', NULL, '2025-10-13 04:11:59'),
 (14, 1, 'Login ke sistem', NULL, '2025-10-13 04:19:42'),
@@ -99,17 +94,6 @@ INSERT INTO `log_aktivitas` (`id`, `id_user`, `aktivitas`, `keterangan`, `create
 (27, 1, 'Login ke sistem', NULL, '2025-10-16 14:56:18'),
 (28, 1, 'Login ke sistem', NULL, '2025-10-16 15:55:52'),
 (29, 1, 'Login ke sistem', NULL, '2025-10-18 01:34:06'),
-(30, 1, 'Logout dari sistem', NULL, '2025-10-18 03:39:22'),
-(31, 1, 'Login ke sistem', NULL, '2025-10-18 03:39:36'),
-(32, 1, 'Logout dari sistem', NULL, '2025-10-18 03:39:42'),
-(33, 2, 'Login ke sistem', NULL, '2025-10-18 03:39:47'),
-(34, 2, 'Logout dari sistem', NULL, '2025-10-18 03:40:56'),
-(35, 2, 'Login ke sistem', NULL, '2025-10-18 03:43:13'),
-(36, 2, 'Logout dari sistem', NULL, '2025-10-18 03:45:37'),
-(37, 2, 'Login ke sistem', NULL, '2025-10-18 03:48:08'),
-(38, 2, 'Logout dari sistem', NULL, '2025-10-18 03:53:46'),
-(39, 1, 'Login ke sistem', NULL, '2025-10-18 03:53:51'),
-(40, 1, 'Logout dari sistem', NULL, '2025-10-18 03:54:02'),
 (41, 1, 'Login ke sistem', NULL, '2025-10-18 03:58:00'),
 (42, 1, 'Mengubah profil', '', '2025-10-18 03:58:24'),
 (43, 1, 'Logout dari sistem', NULL, '2025-10-18 03:58:27'),
@@ -117,15 +101,8 @@ INSERT INTO `log_aktivitas` (`id`, `id_user`, `aktivitas`, `keterangan`, `create
 (45, 1, 'Logout dari sistem', NULL, '2025-10-18 03:58:57'),
 (46, 1, 'Login ke sistem', NULL, '2025-10-18 04:03:38'),
 (47, 1, 'Logout dari sistem', NULL, '2025-10-18 04:10:08'),
-(48, 2, 'Login ke sistem', NULL, '2025-10-18 04:10:15'),
-(49, 2, 'Mengubah profil', '', '2025-10-18 04:10:35'),
-(50, 2, 'Logout dari sistem', NULL, '2025-10-18 04:10:43'),
 (51, 1, 'Login ke sistem', NULL, '2025-10-18 04:10:50'),
 (52, 1, 'Logout dari sistem', NULL, '2025-10-18 04:18:38'),
-(53, 2, 'Login ke sistem', NULL, '2025-10-18 04:18:43'),
-(54, 2, 'Login ke sistem', NULL, '2025-10-18 04:19:16'),
-(55, 2, 'Logout dari sistem', NULL, '2025-10-18 04:19:33'),
-(56, 2, 'Logout dari sistem', NULL, '2025-10-18 04:19:37'),
 (57, 1, 'Login ke sistem', NULL, '2025-10-18 04:19:42'),
 (58, 1, 'Mengubah data user', 'Username: admin', '2025-10-18 04:20:15'),
 (59, 1, 'Login ke sistem', NULL, '2025-10-18 04:26:13'),
@@ -137,9 +114,6 @@ INSERT INTO `log_aktivitas` (`id`, `id_user`, `aktivitas`, `keterangan`, `create
 (65, 1, 'Logout dari sistem', NULL, '2025-10-18 07:36:27'),
 (66, 1, 'Login ke sistem', NULL, '2025-10-18 07:39:47'),
 (67, 1, 'Logout dari sistem', NULL, '2025-10-18 07:45:24'),
-(68, 2, 'Login ke sistem', NULL, '2025-10-18 07:45:31'),
-(69, 2, 'Menambah barang masuk', 'Kode: TRX-M-202510180002, Barang: Router WiFi AC1200, Jumlah: 1', '2025-10-18 07:45:44'),
-(70, 2, 'Logout dari sistem', NULL, '2025-10-18 07:45:47'),
 (71, 1, 'Login ke sistem', NULL, '2025-10-18 07:45:51'),
 (72, 1, 'Menambah barang masuk', 'Kode: TRX-M-202510180003, Barang: ONT Fiber Optic, Jumlah: 1', '2025-10-18 08:02:50'),
 (73, 1, 'Login ke sistem', NULL, '2025-10-18 08:13:33'),
@@ -151,7 +125,6 @@ INSERT INTO `log_aktivitas` (`id`, `id_user`, `aktivitas`, `keterangan`, `create
 (79, 1, 'Mengubah profil', '', '2025-10-18 08:25:33'),
 (80, 1, 'Mengubah profil', '', '2025-10-18 08:30:18'),
 (81, 1, 'Logout dari sistem', NULL, '2025-10-18 08:57:53'),
-(82, 2, 'Login ke sistem', NULL, '2025-10-18 08:58:03'),
 (83, 1, 'Logout dari sistem', NULL, '2025-10-18 12:00:49'),
 (84, 1, 'Login ke sistem', NULL, '2025-10-18 12:05:21'),
 (85, 1, 'Logout dari sistem', NULL, '2025-10-18 12:05:24'),
@@ -161,134 +134,174 @@ INSERT INTO `log_aktivitas` (`id`, `id_user`, `aktivitas`, `keterangan`, `create
 (89, 1, 'Login ke sistem', NULL, '2025-10-18 12:38:48'),
 (90, 1, 'Login ke sistem', NULL, '2025-10-18 12:40:14'),
 (91, 1, 'Logout dari sistem', NULL, '2025-10-18 12:46:30'),
-(92, 2, 'Login ke sistem', NULL, '2025-10-18 12:55:09'),
 (93, 1, 'Logout dari sistem', NULL, '2025-10-18 12:58:43'),
-(94, 2, 'Login ke sistem', NULL, '2025-10-18 12:58:48'),
-(95, 2, 'Logout dari sistem', NULL, '2025-10-18 13:01:47'),
-(96, 2, 'Logout dari sistem', NULL, '2025-10-18 13:10:01'),
 (97, 1, 'Login ke sistem', NULL, '2025-10-18 13:10:21'),
 (98, 1, 'Logout dari sistem', NULL, '2025-10-18 13:10:27'),
-(99, 2, 'Login ke sistem', NULL, '2025-10-18 13:10:32'),
 (100, 1, 'Login ke sistem', NULL, '2025-10-18 16:30:36'),
 (101, 1, 'Mengubah data teknisi', 'Teknisi: Andi Pratama', '2025-10-18 16:33:04'),
 (102, 1, 'Logout dari sistem', NULL, '2025-10-18 16:35:24'),
-(103, 2, 'Login ke sistem', NULL, '2025-10-18 16:35:30'),
-(104, 2, 'Logout dari sistem', NULL, '2025-10-18 16:38:46'),
 (105, 1, 'Login ke sistem', NULL, '2025-10-18 16:38:56'),
 (106, 1, 'Logout dari sistem', NULL, '2025-10-18 16:46:41'),
-(107, 2, 'Login ke sistem', NULL, '2025-10-18 16:46:59'),
-(108, 2, 'Logout dari sistem', NULL, '2025-10-18 16:48:53'),
 (109, 1, 'Login ke sistem', NULL, '2025-10-18 17:07:35'),
-(110, 1, 'Logout dari sistem', NULL, '2025-10-18 17:07:59');
+(110, 1, 'Logout dari sistem', NULL, '2025-10-18 17:07:59'),
+(111, 1, 'Login ke sistem', NULL, '2026-03-29 15:58:22'),
+(112, 1, 'Mengubah data barang', 'Barang: Modem Wifi (BRG001)', '2026-03-29 16:01:14'),
+(113, 1, 'Mengubah data barang', 'Barang: Modem Wifi (BRG001)', '2026-03-29 16:01:28'),
+(114, 1, 'Mengubah data barang', 'Barang: Access Point Indoor (BRG002)', '2026-03-29 16:02:12'),
+(115, 1, 'Mengubah data barang', 'Barang: Kabel UTP Cat6 (BRG003)', '2026-03-29 16:03:06'),
+(116, 1, 'Mengubah data barang', 'Barang: Switch 8 Port Gigabit (BRG004)', '2026-03-29 16:04:31'),
+(117, 1, 'Mengubah data barang', 'Barang: ONT (BRG005)', '2026-03-29 16:08:10'),
+(118, 1, 'Mengubah data barang', 'Barang: Router Wifi (BRG001)', '2026-03-29 16:10:24'),
+(119, 1, 'Mengubah data teknisi', 'Teknisi: Bayu Andy', '2026-03-29 16:13:26'),
+(120, 1, 'Mengubah data teknisi', 'Teknisi: Lukman', '2026-03-29 16:14:45'),
+(121, 1, 'Mengubah data teknisi', 'Teknisi: Udin', '2026-03-29 16:19:53'),
+(122, 1, 'Mengubah profil', '', '2026-03-29 16:23:36'),
+(123, 1, 'Menambah barang keluar', 'Kode: TRX-K-202603290001, Barang: Router Wifi, Teknisi: Bayu Andy, Jumlah: 1', '2026-03-29 16:31:04'),
+(124, 1, 'Menambah user baru', 'Username: bayuandy, Role: teknisi', '2026-03-29 16:37:25'),
+(125, 1, 'Logout dari sistem', NULL, '2026-03-29 16:37:39'),
+(126, 3, 'Login ke sistem', NULL, '2026-03-29 16:37:59'),
+(127, 3, 'Logout dari sistem', NULL, '2026-03-29 16:39:36'),
+(128, 1, 'Login ke sistem', NULL, '2026-03-29 16:39:44'),
+(129, 1, 'Mengubah data user', 'Username: admin', '2026-03-29 16:43:00'),
+(130, 1, 'Logout dari sistem', NULL, '2026-03-29 17:11:53'),
+(131, 1, 'Login ke sistem', NULL, '2026-03-29 17:12:09'),
+(132, 1, 'Logout dari sistem', NULL, '2026-03-29 17:12:15'),
+(133, 1, 'Login ke sistem', NULL, '2026-03-29 17:16:21'),
+(134, 1, 'Menambah barang baru', 'Barang: Kabel FO (BRG006)', '2026-03-29 17:17:34'),
+(135, 1, 'Logout dari sistem', NULL, '2026-03-29 17:22:23'),
+(136, 1, 'Login ke sistem', NULL, '2026-03-29 18:02:32'),
+(137, 1, 'Logout dari sistem', NULL, '2026-03-29 18:02:51'),
+(138, 1, 'Login ke sistem', NULL, '2026-03-30 01:07:24'),
+(139, 1, 'Login ke sistem', NULL, '2026-03-30 03:58:09'),
+(140, 1, 'Login ke sistem', NULL, '2026-03-30 04:51:29'),
+(141, 1, 'Login ke sistem', NULL, '2026-03-30 04:54:13'),
+(142, 1, 'Logout dari sistem', NULL, '2026-03-30 04:56:01'),
+(143, 3, 'Login ke sistem', NULL, '2026-03-30 04:56:10'),
+(144, 3, 'Logout dari sistem', NULL, '2026-03-30 06:02:19'),
+(145, 1, 'Login ke sistem', NULL, '2026-03-30 06:02:31'),
+(146, 1, 'Logout dari sistem', NULL, '2026-03-30 06:04:22'),
+(147, 3, 'Login ke sistem', NULL, '2026-03-30 06:04:32'),
+(148, 3, 'Logout dari sistem', NULL, '2026-03-30 06:05:51'),
+(149, 1, 'Login ke sistem', NULL, '2026-03-30 06:06:08'),
+(150, 1, 'Logout dari sistem', NULL, '2026-03-30 15:28:03'),
+(151, 1, 'Login ke sistem', NULL, '2026-03-30 15:39:47'),
+(152, 1, 'Logout dari sistem', NULL, '2026-03-30 17:59:49'),
+(153, 1, 'Login ke sistem', NULL, '2026-03-30 18:00:19'),
+(154, 1, 'Logout dari sistem', NULL, '2026-03-30 18:00:32'),
+(155, 1, 'Login ke sistem', NULL, '2026-03-31 01:31:58'),
+(156, 1, 'Logout dari sistem', NULL, '2026-03-31 01:32:06'),
+(157, 1, 'Login ke sistem', NULL, '2026-03-31 01:42:56'),
+(158, 1, 'Logout dari sistem', NULL, '2026-03-31 01:46:12'),
+(159, 1, 'Login ke sistem', NULL, '2026-03-31 01:50:57'),
+(160, 1, 'Logout dari sistem', NULL, '2026-03-31 01:51:05'),
+(161, 3, 'Login ke sistem', NULL, '2026-03-31 01:51:11'),
+(162, 3, 'Logout dari sistem', NULL, '2026-03-31 01:55:29'),
+(163, 1, 'Login ke sistem', NULL, '2026-03-31 02:26:27'),
+(164, 1, 'Logout dari sistem', NULL, '2026-03-31 02:26:32'),
+(165, 1, 'Login ke sistem', NULL, '2026-03-31 02:58:38'),
+(166, 1, 'Logout dari sistem', NULL, '2026-03-31 02:59:03'),
+(167, 1, 'Login ke sistem', NULL, '2026-03-31 03:29:06'),
+(168, 1, 'Logout dari sistem', NULL, '2026-03-31 07:28:47'),
+(169, 1, 'Login ke sistem', NULL, '2026-03-31 07:29:00'),
+(170, 1, 'Logout dari sistem', NULL, '2026-03-31 07:29:14'),
+(171, 1, 'Login ke sistem', NULL, '2026-03-31 07:30:00'),
+(172, 1, 'Logout dari sistem', NULL, '2026-03-31 08:06:33');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `teknisi`
+-- Table structure for table `teknisi`
 --
 
 CREATE TABLE `teknisi` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `nama` varchar(100) NOT NULL,
   `no_hp` varchar(20) DEFAULT NULL,
-  `alamat` text DEFAULT NULL,
+  `alamat` text,
   `status` enum('aktif','nonaktif') DEFAULT 'aktif',
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data untuk tabel `teknisi`
+-- Dumping data for table `teknisi`
 --
 
 INSERT INTO `teknisi` (`id`, `nama`, `no_hp`, `alamat`, `status`, `created_at`) VALUES
-(1, 'Budi Santoso', '081234567890', 'Jl. Raya No. 123', 'aktif', '2025-10-12 13:55:53'),
-(2, 'Andi Pratama', '082345678901', 'Jl. Merdeka No. 45', 'aktif', '2025-10-12 13:55:53'),
-(3, 'Dedi Kurniawan', '083456789012', 'Jl. Sudirman No. 67', 'aktif', '2025-10-12 13:55:53');
+(1, 'Bayu Andy', '088991828293', 'Pencol, Cangakan', 'aktif', '2026-03-19 13:55:53'),
+(2, 'Lukman', '085749258070', 'Jl. Raya Jatirejo', 'aktif', '2026-03-19 13:55:53'),
+(3, 'Udin', '081973227313', 'Blimbing, Dawu', 'aktif', '2026-03-19 13:55:53');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `transaksi`
+-- Table structure for table `transaksi`
 --
 
 CREATE TABLE `transaksi` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `kode_transaksi` varchar(50) NOT NULL,
-  `id_barang` int(11) NOT NULL,
-  `id_teknisi` int(11) DEFAULT NULL,
-  `id_user` int(11) NOT NULL,
+  `id_barang` int NOT NULL,
+  `id_teknisi` int DEFAULT NULL,
+  `id_user` int NOT NULL,
   `tipe` enum('masuk','keluar') NOT NULL,
-  `jumlah` int(11) NOT NULL,
+  `jumlah` int NOT NULL,
   `tanggal` date NOT NULL,
-  `keterangan` text DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `transaksi`
---
-
-INSERT INTO `transaksi` (`id`, `kode_transaksi`, `id_barang`, `id_teknisi`, `id_user`, `tipe`, `jumlah`, `tanggal`, `keterangan`, `created_at`) VALUES
-(1, 'TRX-K-202510130001', 1, 1, 1, 'keluar', 2, '2025-10-13', 'Instalasi', '2025-10-13 03:38:39'),
-(2, 'TRX-M-202510130001', 4, NULL, 2, 'masuk', 1, '2025-10-13', '', '2025-10-13 03:47:44'),
-(3, 'TRX-K-202510130002', 3, 1, 1, 'keluar', 10, '2025-10-13', '', '2025-10-13 04:37:49'),
-(4, 'TRX-M-202510180001', 5, NULL, 1, 'masuk', 5, '2025-10-18', 'HG8145V5', '2025-10-18 04:28:42'),
-(5, 'TRX-M-202510180002', 1, NULL, 2, 'masuk', 1, '2025-10-18', '', '2025-10-18 07:45:44'),
-(6, 'TRX-M-202510180003', 5, 3, 1, 'masuk', 1, '2025-10-18', 'Dismantle', '2025-10-18 08:02:50'),
-(7, 'TRX-K-202510180001', 5, 3, 1, 'keluar', 1, '2025-10-18', 'Ganti Alat', '2025-10-18 08:16:49');
+  `keterangan` text,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
   `nama_lengkap` varchar(100) NOT NULL,
   `email` varchar(100) DEFAULT NULL,
   `role` enum('admin','teknisi') DEFAULT 'teknisi',
   `foto_profil` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data untuk tabel `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `nama_lengkap`, `email`, `role`, `foto_profil`, `created_at`, `updated_at`) VALUES
-(1, 'admin', '$2y$10$mTsOwJXunyy6bd3ZXgoDpeE2TpYNgBhKUOBqO7PMpjaFJFG8fO9JK', 'Administrator', 'admin@inventory.com', 'admin', 'uploads/profil/profil_1_1760775933.jpg', '2025-10-12 13:55:53', '2025-10-18 08:25:33'),
-(2, 'agungp', '$2y$10$jT/EbMDpSzIadmNgTasqjOb6xPw.ul056uSVUWU8.F61Z87M70txW', 'Agung', 'agung@inventory.com', 'teknisi', 'uploads/profil/profil_2_1760760635.jpg', '2025-10-13 03:40:07', '2025-10-18 04:10:35');
+(1, 'admin', '$2y$10$mTsOwJXunyy6bd3ZXgoDpeE2TpYNgBhKUOBqO7PMpjaFJFG8fO9JK', 'Administrator', 'amandanet@gmail.com', 'admin', 'uploads/profil/profil_1_1774801416.jpeg', '2026-02-10 09:55:53', '2026-03-20 01:50:00'),
+(3, 'bayuandy', '$2y$10$VdqSK1S3WnRSA1Ks0Fywo.wiMwV0omcvcgemnZjWFdR7s42NsHSc6', 'Bayu Andy', 'bayuandy@gmail.com', 'teknisi', NULL, '2026-03-29 16:37:25', '2026-03-29 16:37:25');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `barang`
+-- Indexes for table `barang`
 --
 ALTER TABLE `barang`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `kode_barang` (`kode_barang`);
 
 --
--- Indeks untuk tabel `log_aktivitas`
+-- Indexes for table `log_aktivitas`
 --
 ALTER TABLE `log_aktivitas`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_user` (`id_user`);
 
 --
--- Indeks untuk tabel `teknisi`
+-- Indexes for table `teknisi`
 --
 ALTER TABLE `teknisi`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `transaksi`
+-- Indexes for table `transaksi`
 --
 ALTER TABLE `transaksi`
   ADD PRIMARY KEY (`id`),
@@ -298,58 +311,58 @@ ALTER TABLE `transaksi`
   ADD KEY `id_user` (`id_user`);
 
 --
--- Indeks untuk tabel `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `barang`
+-- AUTO_INCREMENT for table `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `log_aktivitas`
+-- AUTO_INCREMENT for table `log_aktivitas`
 --
 ALTER TABLE `log_aktivitas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=173;
 
 --
--- AUTO_INCREMENT untuk tabel `teknisi`
+-- AUTO_INCREMENT for table `teknisi`
 --
 ALTER TABLE `teknisi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `transaksi`
+-- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT untuk tabel `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `log_aktivitas`
+-- Constraints for table `log_aktivitas`
 --
 ALTER TABLE `log_aktivitas`
   ADD CONSTRAINT `log_aktivitas_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `transaksi`
+-- Constraints for table `transaksi`
 --
 ALTER TABLE `transaksi`
   ADD CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id`) ON DELETE CASCADE,
