@@ -100,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <div class="mt-6 pt-6 border-t border-gray-200">
                 <p class="text-sm text-gray-600 text-center">
-                    
+                    Maker : <span class="font-medium">By DMH</span> / <span class="font-medium">JH</span>
                 </p>
             </div>
         </div>
