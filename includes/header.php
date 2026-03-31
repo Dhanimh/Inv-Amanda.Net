@@ -31,7 +31,7 @@
                         </div>
                         <div class="hidden md:block min-w-max">
                             <h1 class="text-lg font-bold text-gray-900">Inv-Amanda.Net</h1>
-                            <p class="text-xs text-gray-500">Sistem Manajemen WiFi</p>
+                            <p class="text-xs text-gray-500">Sistem Manajemen Barang</p>
                         </div>
                     </div>
 
